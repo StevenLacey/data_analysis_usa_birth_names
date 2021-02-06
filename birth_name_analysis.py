@@ -1,3 +1,16 @@
+names_file = open("names.txt", "r")
+
+#create dicts of buys and girls names
+dict_of_boys_names = {}
+dict_of_girls_names = {}
+for name in names_file:
+    temp_list = name.split(",")
+    if temp_list[2] == "Boy\n":
+        if temp_list[0] not in dict_of_boys_names:
+            dict_of_boys_names[temp_list[0]] = {"count" : int(temp_list[1]), "gender" : temp_list[2].strip()}
+    if temp_list[2] == "Girl\n":
+        if temp_list[0] not in dict_of_girls_names:
+            dict_of_girls_names[temp_list[0]] = {"count" : int(temp_list[1]), "gender" : temp_list[2].strip()}
 #total names
 count_of_names = 0
 for key in dict_of_boys_names:
